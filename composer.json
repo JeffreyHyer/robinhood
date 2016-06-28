@@ -1,0 +1,29 @@
+{
+    "name": "jeffreyhyer/robinhood",
+    "description": "A very unofficial PHP wrapper for the Robinhood API",
+    "keywords": ["robinhood", "api", "stock", "market", "library", "wrapper", "unofficial"],
+    "license": "MIT",
+    "homepage": "https://github.com/jeffreyhyer/robinhood",
+    "support": {
+        "issues": "https://github.com/jeffreyhyer/robinhood/issues",
+        "source": "https://github.com/jeffreyhyer/robinhood"
+    },
+    "authors": [
+        {
+            "name": "Jeffrey Hyer",
+            "email": "github-robinhood@jeffreyhyer.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Robinhood\\": "src/"
+        }
+    }
+}
