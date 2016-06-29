@@ -83,13 +83,16 @@ class Robinhood
      */
     public function _buildUrl($path = "", $queryStrings = [], $domain = "")
     {
-        $queryString = "?api-version={$this->options['api_version']}";
+        $queryString = "";
         foreach ($queryStrings as $key => $value) {
             if (is_array($value)) {
                 continue;
             }
 
             $queryString .= "&{$key}={$value}";
+        }
+        if (strlen($queryString) > 0) {
+            $queryString = "?" . substr($queryString, 1);
         }
 
         if ($domain == "") {
@@ -150,6 +153,10 @@ class Robinhood
             case 'orders':
                 return new Api\Orders($this);
 
+            case 'watchlist':
+            case 'watchlists':
+                return new Api\Watchlists($this);
+
             case 'test':
                 return new Api\Test($this);
 
@@ -165,8 +172,6 @@ class Robinhood
      * @param  [type] $args   [description]
      *
      * @return [type]         [description]
-     *
-     * @todo   $args doesn't do anything right now. Is it needed?
      */
     public function __call($method, $args)
     {
