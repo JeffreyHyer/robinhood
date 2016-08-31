@@ -163,6 +163,10 @@ class Robinhood
             case 'exchanges':
                 return new Api\Markets($this);
 
+            case 'document':
+            case 'documents':
+                return new Api\Documents($this);
+
             default:
                 throw new \Exception("Invalid API ($name)");
         }
