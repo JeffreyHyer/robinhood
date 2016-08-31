@@ -23,7 +23,7 @@ class Instruments extends AbstractApi
      *
      * @return object
      */
-    public function instrumentsBySymbol($symbol)
+    public function instrumentBySymbol($symbol)
     {
         $symbol = strtoupper($symbol);
 
