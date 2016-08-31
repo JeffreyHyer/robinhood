@@ -51,16 +51,17 @@ class Account extends AbstractApi
      *
      * @param  string $account The account number to retrieve (defaults to the logged in users' first account)
      * @param  string $cursor  The cursor to start at for paginated results
+     * @param  string $nonzero true/false/[blank]: true = Return only results that are non-zero, false = return only zeroed results, blank = return all results
      *
      * @return object          [description]
      */
-    public function positions($account = "", $cursor = "")
+    public function positions($account = "", $cursor = "", $nonzero = "true")
     {
         if ($account == "") {
             $account = $this->robinhood->account;
         }
 
-        return $this->get("accounts/{$account}/positions");
+        return $this->get("accounts/{$account}/positions", ["nonzero" => $nonzero]);
     }
 
     /**
