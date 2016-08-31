@@ -54,12 +54,30 @@ class Account extends AbstractApi
      *
      * @return object          [description]
      */
-    public function positions($account = "", $position = "", $cursor = "")
+    public function positions($account = "", $cursor = "")
     {
         if ($account == "") {
             $account = $this->robinhood->account;
         }
 
         return $this->get("accounts/{$account}/positions");
+    }
+
+    /**
+     * Get an accounts positions
+     *
+     * @param  string $position The ID of the position to retrieve
+     * @param  string $account  The account number to retrieve (defaults to the logged in users' first account)
+     * @param  string $cursor   The cursor to start at for paginated results
+     *
+     * @return object          [description]
+     */
+    public function position($position, $account = "", $cursor = "")
+    {
+        if ($account == "") {
+            $account = $this->robinhood->account;
+        }
+
+        return $this->get("accounts/{$account}/positions/{$position}/");
     }
 }
