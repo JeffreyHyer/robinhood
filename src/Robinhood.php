@@ -157,8 +157,11 @@ class Robinhood
             case 'watchlists':
                 return new Api\Watchlists($this);
 
-            case 'test':
-                return new Api\Test($this);
+            case 'market':
+            case 'markets':
+            case 'exchange':
+            case 'exchanges':
+                return new Api\Markets($this);
 
             default:
                 throw new \Exception("Invalid API ($name)");
