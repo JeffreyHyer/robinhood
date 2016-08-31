@@ -33,12 +33,18 @@ class Instruments extends AbstractApi
     /**
      * Get the instrument as specified by the instrument ID
      *
-     * @param  string $instrumentId The instrument ID to retrieve
+     * @param  string $instrumentId The instrument ID to retrieve (or instrument URL from which the ID will be extracted)
      *
      * @return description
      */
     public function instrument($instrumentId)
     {
+        if (strpos($instrumentId, 'api.robinhood.com') !== false) {
+            if (preg_match('/[\da-f]{8}-[\da-f]{4}-[\da-f]{4}-[\da-f]{4}-[\da-f]{12}/i', $instrumentId, $matches) === 1) {
+                $instrumentId = $matches[0];
+            }
+        }
+
         return $this->get("instruments/{$instrumentId}");
     }
 
