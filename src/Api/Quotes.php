@@ -51,4 +51,20 @@ class Quotes extends AbstractApi
 
         return $this->get('quotes/historicals', ['symbols' => $symbols, 'interval' => $interval, 'span' => $span]);
     }
+
+    /**
+     * Get the last price for a given symbol(s)
+     *
+     * @param  string|array $symbols The symbol(s) to retrieve prices for
+     * @return object
+     */
+    public function price($symbols)
+    {
+        if (is_array($symbols)) {
+            $symbols = implode(",", $symbols);
+        }
+        $symbols = strtoupper($symbols);
+
+        return $this->get('prices/', ['symbols' => $symbols, 'delayed' => 'true', 'source' => 'consolidated']);
+    }
 }

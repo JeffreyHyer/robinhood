@@ -95,4 +95,27 @@ class Instruments extends AbstractApi
     {
         return $this->get("fundamentals/{$instrumentId}");
     }
+
+    /**
+     * Get the latest price for a given instrument(s)
+     *
+     * @param  string|array $instruments Instrument id(s) to retrieve. Takes the full ID URL or just the ID. ID's will be converted to URLs.
+     *
+     * @return object
+     */
+    public function price($instruments)
+    {
+        if (is_array($instruments)) {
+            foreach ($instruments as &$instrument) {
+                if (preg_match('/^[\da-f]{8}-([\da-f]{4}-){3}[\da-f]{12}$/i', $instrument) === 1) {
+                    $instrument = "https://api.robinhood.com/instruments/{$instrument}/";
+                }
+            }
+
+            $instruments = implode(",", $instruments);
+        }
+        $instruments = strtolower($instruments);
+
+        return $this->get('prices/', ['instruments' => $instruments, 'delayed' => 'true', 'source' => 'consolidated']);
+    }
 }
