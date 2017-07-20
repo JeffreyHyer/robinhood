@@ -184,4 +184,16 @@ class Robinhood
     {
         return $this->api($method);
     }
+
+    /**
+     * [__get description]
+     *
+     * @param  [type] $property [description]
+     *
+     * @return [type]           [description]
+     */
+    public function __get($property)
+    {
+        return $this->api($property);
+    }
 }

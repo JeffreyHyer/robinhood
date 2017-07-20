@@ -35,10 +35,7 @@ class Banks extends AbstractApi
      */
     public function unlinkAccount($id)
     {
-        // Commented out for safety as I haven't tested this
-        // and I don't want to do so accidentally ;)
-
-        // return $this->get("ach/relationships/{$id}/unlink");
+        return $this->get("ach/relationships/{$id}/unlink");
     }
 
     /**
