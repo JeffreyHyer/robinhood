@@ -72,7 +72,7 @@ $robinhood = new Robinhood\Robinhood($username, $password);
 ```
 
 
-#### Authentication
+### Authentication
 
 Accessed via the `$robinhood->auth` or `$robinhood->authentication` properties.
 
@@ -94,7 +94,7 @@ Accessed via the `$robinhood->auth` or `$robinhood->authentication` properties.
         - *Not Implemented*
 
 
-#### Account
+### Account
 
 Accessed via the `$robinhood->accounts` or `$robinhood->account` properties.
 
@@ -125,7 +125,7 @@ Accessed via the `$robinhood->accounts` or `$robinhood->account` properties.
         - `$position` is a string that contains the position ID to retrieve
 
 
-#### Current User
+### Current User
 
 Accessed via the `$robinhood->user` or `$robinhood->users` properties.
 
@@ -151,7 +151,7 @@ Accessed via the `$robinhood->user` or `$robinhood->users` properties.
     - `$robinhood->user->additionalInfo()`
 
 
-#### ACH Relationships/Bank Accounts
+### ACH Relationships/Bank Accounts
 Accessed via the `$robinhood->ach` or `$robinhood->wire` or `$robinhood->wires`
 or `$robinhood->bank` or `$robinhood->banks` properties.
 
@@ -196,7 +196,7 @@ or `$robinhood->bank` or `$robinhood->banks` properties.
     - `$robinhood->wires->wireTransfer(string $id)`
 
 
-#### Account Documents
+### Account Documents
 Accessed via the `$robinhood->documents` or `$robinhood->document` properties.
 
 - **Account Documents**
@@ -210,21 +210,21 @@ Accessed via the `$robinhood->documents` or `$robinhood->document` properties.
         - *Not Implemented*
 
 
-#### Quotes
+### Quotes
 ...
 
 
-#### Instruments
+### Instruments
 ...
 
 
-#### Orders
+### Orders
 ...
 
 
-#### Markets/Exchanges
+### Markets/Exchanges
 ...
 
 
-#### Watchlists
+### Watchlists
 ...
