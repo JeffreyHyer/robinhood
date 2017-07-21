@@ -211,7 +211,21 @@ Accessed via the `$robinhood->documents` or `$robinhood->document` properties.
 
 
 ### Quotes
-...
+Accessed via the `$robinhood->quotes` or `$robinhood->quote` properties.
+
+- **Quote**
+    - `$robinhood->quotes->quote(string|array $symbols, [string $cursor = ""])`
+        - Retrieve a quote for a given symbol(s)
+
+- **Historical Data**
+    - `$robinhood->quotes->historical(string|array $symbols, [string $interval = "10minute", [string $span = "day", [string $cursor = ""]]])`
+        - Retrieve the historical data (OHLC, volume, etc) for a given symbol(s)
+        - `$interval` can be one of ['5minute', '10minute', 'day']
+        - `$span` can be one of ['week', 'day', 'year', '5yr', 'all']
+
+- **Price**
+    - `$robinhood->quotes->price(string|array $symbols)`
+        - Retrieve the last price for a given symbol(s)
 
 
 ### Instruments
